@@ -1,0 +1,27 @@
+ public static int rCompare(String s1, String s2) {
+        int indexOfFirstUnEqualChar = rCompareCore(s1, s2);
+        if (s1.length() == s2.length() && indexOfFirstUnEqualChar == s1.length()) {
+            return -1;
+        }
+        return indexOfFirstUnEqualChar;
+
+    }
+
+   public static int rCompareCore(String s1, String s2) {
+        
+        if (s1.length() * s2.length() == 0) {
+            return 0;
+        }
+
+        int indexOfFirstUnEqualChar = rCompareCore(s1.substring(0, s1.length() - 1), s2.substring(0, s2.length() - 1));
+    //האינדקס גדל באחד עד למקרה שהתנאי לא מתקיים. 
+    //ברגע שהוא מפסיק להתקיים פעם אחת הוא אף פעם לא יתקיים שוב
+        
+    
+    if (s1.charAt(indexOfFirstUnEqualChar) == s2.charAt(indexOfFirstUnEqualChar)) {
+
+            return indexOfFirstUnEqualChar + 1;
+        }
+        return indexOfFirstUnEqualChar;
+
+    }
